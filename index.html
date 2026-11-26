@@ -42,6 +42,27 @@ dialog{width:min(92vw,440px);max-height:90vh;max-height:90dvh;overflow:auto;padd
 .whatsapp-btn:hover{background:#286946;color:white}.whatsapp-btn svg{width:20px;height:20px}.whatsapp-note{margin:12px auto 0;max-width:260px}
 @media(min-width:740px){.sound{right:max(20px,calc((100vw - 740px)/2 + 20px))}}
 @media(prefers-reduced-motion:reduce){.sound svg{animation:none!important}}
+
+/* Firma comercial discreta: no compite con la identidad del evento. */
+.studio-credit{width:min(100%,340px);margin:25px auto 0;padding:17px 6px 3px;border-top:1px solid #ead9df;display:flex;flex-direction:column;align-items:center;gap:3px;font:400 11px/1.55 var(--sans);color:var(--muted);text-align:center}
+.studio-kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.studio-brand{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 8px;color:var(--deep);font-size:15px;font-weight:700;letter-spacing:-.025em;text-decoration:none}
+.studio-brand svg{color:var(--gold);flex-shrink:0}.studio-software{font-weight:400;letter-spacing:0}
+.studio-tagline{font-size:11px;letter-spacing:0}
+.studio-contact{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:44px;padding:5px 8px;color:var(--deep);font-size:12px;font-weight:500;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#c795a5}
+.studio-brand:hover,.studio-contact:hover{color:#73354b}.studio-contact svg{flex-shrink:0}
+.footer{padding-bottom:max(76px,calc(env(safe-area-inset-bottom) + 68px))}
+@media print{.studio-contact{display:none}.footer{padding-bottom:24px}}
+
+/* Contacto comercial: compacto, con acciones adaptadas al dispositivo. */
+.studio-cta{margin-top:8px;font-size:11px;font-weight:500;color:var(--muted)}
+.studio-links{display:flex;flex-direction:column;align-items:center;gap:0;width:100%;margin-top:2px}
+.studio-method{max-width:100%;min-height:44px;padding:5px 3px;gap:7px;text-decoration:none;font-size:12px;line-height:1.4;overflow-wrap:anywhere}
+.studio-method span{min-width:0;text-align:left;text-decoration:underline;text-decoration-color:#d4a4b1;text-underline-offset:3px}
+.studio-method[hidden]{display:none!important}.studio-action-icon{opacity:.7}.studio-method:focus-visible{outline:2px solid var(--deep);outline-offset:2px;border-radius:4px}
+.studio-feedback{min-height:1.45em;font-size:11px;color:var(--deep);line-height:1.45;max-width:100%;overflow-wrap:anywhere}
+.studio-feedback:empty{visibility:hidden}
+@media print{.studio-links,.studio-feedback,.studio-cta{display:none}}
 </style>
 </head>
 <body>
@@ -71,7 +92,35 @@ dialog{width:min(92vw,440px);max-height:90vh;max-height:90dvh;overflow:auto;padd
 <section class="section date-section" id="fecha"><svg class="butterfly b3" aria-hidden="true"><use href="#butter"/></svg><div class="reveal"><p class="eyebrow">Reserva este día</p><h2 class="script">Te espero</h2><div class="date-art" aria-label="Domingo 3 de enero de 2027"><span class="day" aria-hidden="true">03</span><span class="weekday" aria-hidden="true">Domingo</span><span class="month script" aria-hidden="true">Enero</span><span class="year" aria-hidden="true">2027</span></div><div class="date-times"><div><small>Ceremonia religiosa</small><time datetime="2027-01-03T12:00:00-06:00">12:00 p. m.</time></div><div><small>Recepción</small><time datetime="2027-01-03T15:00:00-06:00">3:00 p. m.</time></div></div><button class="btn secondary" id="calendar-btn"><svg aria-hidden="true"><use href="#calendar"/></svg> Agendar fecha</button><div class="ornament" aria-hidden="true"><svg><use href="#sprig"/></svg></div><h2 class="script" style="font-size:35px;margin-bottom:8px">Solo faltan…</h2><div class="countdown" role="timer" aria-label="Cuenta regresiva al bautizo"><div><strong id="days">--</strong><small>Días</small></div><div><strong id="hours">--</strong><small>Horas</small></div><div><strong id="mins">--</strong><small>Min</small></div><div><strong id="secs">--</strong><small>Seg</small></div></div><p class="fine" id="count-note">Cada instante nos acerca a este día especial.</p></div></section>
 <section class="section schedule" id="lugares"><svg class="floral tl" style="width:128px;opacity:.65" aria-hidden="true"><use href="#flowers"/></svg><div class="reveal"><p class="eyebrow">Celebremos juntos</p><h2 class="script">Dónde y cuándo</h2><article class="event-card"><svg class="event-icon" aria-hidden="true"><use href="#church"/></svg><h3>Ceremonia religiosa</h3><p class="place">Santo Niño de Atocha<br>Ocampo, Michoacán</p><p class="detail">Domingo 3 de enero · 12:00 p. m.</p><a class="btn secondary" id="church-map" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=Santo%20Ni%C3%B1o%20de%20Atocha%2C%20Ocampo%2C%20Michoac%C3%A1n%2C%20M%C3%A9xico"><svg aria-hidden="true"><use href="#pin"/></svg> Buscar en Maps</a></article><article class="event-card"><svg class="event-icon" aria-hidden="true"><use href="#heart"/></svg><h3>Recepción</h3><p class="detail event-hour">Domingo 3 de enero · 3:00 p. m.</p><p>Después de la ceremonia, acompáñanos a celebrar en casa de la familia López.</p><button class="btn secondary" id="reception-map"><svg aria-hidden="true"><use href="#pin"/></svg> Ver ubicación</button><p class="fine" id="location-note" style="margin-top:12px">Ubicación exacta por confirmar.</p></article></div></section>
 <section class="section rsvp" id="confirmacion"><svg class="floral tl" style="width:120px" aria-hidden="true"><use href="#flowers"/></svg><svg class="floral br" aria-hidden="true"><use href="#flowers"/></svg><div class="reveal"><p class="eyebrow">Tu presencia es un regalo</p><svg class="mini-bow" aria-hidden="true"><use href="#ribbon-bow"/></svg><h2 class="script">¿Nos acompañas?</h2><p>Tu cariño y presencia hacen la diferencia. Por favor, confírmanos tu asistencia.</p><a class="btn whatsapp-btn" id="rsvp-btn" href="#confirmacion" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.8 9.8 0 0 0-8.5 14.7L2 22l5.5-1.4A9.8 9.8 0 1 0 12 2zm0 17.8a8 8 0 0 1-4.1-1.1l-.3-.2-3.2.8.9-3.1-.2-.3A8 8 0 1 1 12 19.8zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1-1.1-.5-2.4-1.2-3.3-2.8-.2-.3.2-.5.6-1 .1-.2.2-.3.1-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.5.5-.7 1-.7 1.7 0 1 .6 2 1.3 2.9 1.4 1.8 2.8 2.6 4.1 3 .5.2 1.2.4 1.8.3.5-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.2-.5-.3z"/></svg> Confirmar por WhatsApp</a><p class="fine whatsapp-note">Se abrirá WhatsApp con un mensaje listo para enviar.</p><div class="ornament" aria-hidden="true"><svg><use href="#sprig"/></svg></div><p class="closing">Gracias por acompañarnos en este momento que atesoramos por siempre.</p></div></section>
-<footer class="footer"><div class="script">Lia Sophia</div><p>Mi bautizo · 03.01.2027</p></footer></main>
+<footer class="footer"><div class="script">Lia Sophia</div><p>Mi bautizo · 03.01.2027</p>
+  <!-- Firma del estudio: independiente de la confirmación de asistencia. -->
+  <aside class="studio-credit" aria-label="Créditos y contacto del estudio de diseño">
+    <span class="studio-kicker">Diseño y desarrollo por</span>
+    <a class="studio-brand" href="https://www.facebook.com/DeveloperCrown/" target="_blank" rel="noopener noreferrer" aria-label="DevCrown Software en Facebook">
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 6 4.5 5L12 3l4.5 8L21 6l-2 12H5L3 6ZM6 21h12"/></svg>
+      <span>DevCrown<span class="studio-software"> Software</span></span>
+    </a>
+    <span class="studio-tagline">Invitaciones digitales &amp; experiencias web</span>
+    <span class="studio-cta">¿Creamos una invitación para tu evento?</span>
+    <div class="studio-links" aria-label="Contacto comercial">
+      <a class="studio-contact studio-method" id="studio-email" href="mailto:ingeniero.rene.corona@gmail.com">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span id="studio-email-value">ingeniero.rene.corona@gmail.com</span>
+        <svg class="studio-action-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use id="studio-email-icon" href="#studio-copy-icon"/></svg>
+      </a>
+      <a class="studio-contact studio-method" id="studio-phone" hidden>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2 16 16 0 0 0 16 16 2 2 0 0 0 2-2v-3l-5-2-2 2a12 12 0 0 1-6-6l2-2-2-5Z"/></svg>
+        <span id="studio-phone-value"></span>
+        <svg class="studio-action-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use id="studio-phone-icon" href="#studio-copy-icon"/></svg>
+      </a>
+    </div>
+    <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+      <symbol id="studio-copy-icon" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+      <symbol id="studio-open-icon" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    </defs></svg>
+    <span class="studio-feedback" id="studio-feedback" role="status" aria-live="polite" aria-atomic="true"></span>
+  </aside>
+</footer></main>
 <button class="sound" id="sound" aria-label="Activar sonido" aria-pressed="false" title="Activar sonido"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="17" cy="16" rx="3" ry="2.5"/><path class="mute-line" d="M3 3l18 18" stroke-width="2"/></svg></button>
 <dialog id="info-dialog" aria-labelledby="info-title"><button class="close" data-close aria-label="Cerrar">×</button><h2 id="info-title"></h2><p id="info-message"></p><button class="btn secondary full" data-close>Entendido</button></dialog>
 <audio id="background-music" preload="auto" loop autoplay></audio>
@@ -88,10 +137,17 @@ const CONFIG = {
   eventEnd: '2027-01-03T13:00:00-06:00',
   churchMap: '',
   receptionMap: 'https://www.google.com/maps?q=19.5820834,-100.3300109&z=17&hl=es',
-  whatsapp: '', // PENDIENTE: número real de los anfitriones
+  whatsapp: '527153068543', // PENDIENTE: número real de los anfitriones
   musicUrl: './musica.mp3',
   musicVolume: 0.38,
   effectsVolume: 0.30
+};
+// Contacto del estudio: NO confundir con CONFIG.whatsapp (anfitriones).
+const STUDIO_CONFIG = {
+  email: 'ingeniero.rene.corona@gmail.com',
+  phone: '527152533595', // Escribe 52 + los 10 dígitos de tu WhatsApp comercial, sin espacios ni +.
+  subject: 'Cotización de invitación digital',
+  message: '¡Hola, DevCrown Software! Vi la invitación digital del bautizo de Lia Sophia y me gustaría recibir información y una cotización para mi evento. ¡Gracias!'
 };
 const $ = (id) => document.getElementById(id);
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -209,5 +265,59 @@ document.addEventListener('click', e => {
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden && !userMuted) startMusic();
 });
+
+// En escritorio, copiar; en Android/iOS/iPadOS, abrir la aplicación correspondiente.
+(() => {
+  const email = STUDIO_CONFIG.email.trim();
+  const digits = String(STUDIO_CONFIG.phone || '').replace(/[\s()+-]/g, '');
+  const phone = /^[1-9]\d{7,14}$/.test(digits) ? digits : '';
+  const displayPhone = phone.startsWith('52') && phone.length === 12
+    ? `+52 ${phone.slice(2,5)} ${phone.slice(5,8)} ${phone.slice(8)}` : `+${phone}`;
+  const ua = navigator.userAgent || '';
+  const mobile = /Android|iPhone|iPad|iPod|Windows Phone|Mobile/i.test(ua)
+    || navigator.userAgentData?.mobile === true
+    || (/Mac/i.test(navigator.platform || '') && navigator.maxTouchPoints > 1);
+  const status = $('studio-feedback');
+  let feedbackTimer;
+  function feedback(message) {
+    clearTimeout(feedbackTimer);
+    status.textContent = message;
+    feedbackTimer = setTimeout(() => {status.textContent = '';}, 4200);
+  }
+  function fallbackCopy(value) {
+    const node = document.createElement('textarea');
+    node.value = value; node.readOnly = true;
+    node.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0';
+    const priorFocus = document.activeElement;
+    document.body.append(node); node.select(); node.setSelectionRange(0,value.length);
+    let ok = false;
+    try {ok = document.execCommand('copy');} catch {} finally {
+      node.remove(); if (priorFocus instanceof HTMLElement) priorFocus.focus({preventScroll:true});
+    }
+    return ok;
+  }
+  async function copyContact(value,label) {
+    let ok = false;
+    try {if(navigator.clipboard?.writeText) {await navigator.clipboard.writeText(value);ok=true;}} catch {}
+    if (!ok) ok = fallbackCopy(value);
+    if (ok) feedback(label + ' copiado al portapapeles.');
+    else {feedback('No se pudo copiar automáticamente.');showInfo('Contacto comercial',value);}
+  }
+  function configure(id, value, label, url) {
+    const el = $(id);
+    el.href = url;
+    el.title = mobile ? `Abrir ${label === 'Correo' ? 'aplicación de correo' : 'WhatsApp'}` : `Copiar ${label.toLowerCase()}`;
+    el.setAttribute('aria-label', `${el.title}: ${value}`);
+    $(id+'-icon').setAttribute('href', mobile ? '#studio-open-icon' : '#studio-copy-icon');
+    if (!mobile) el.addEventListener('click', e => {e.preventDefault();copyContact(value,label);});
+  }
+  $('studio-email-value').textContent = email;
+  configure('studio-email',email,'Correo',`mailto:${email}?subject=${encodeURIComponent(STUDIO_CONFIG.subject)}&body=${encodeURIComponent(STUDIO_CONFIG.message)}`);
+  if (phone) {
+    $('studio-phone-value').textContent = displayPhone;
+    configure('studio-phone',`+${phone}`,'Teléfono',`https://wa.me/${phone}?text=${encodeURIComponent(STUDIO_CONFIG.message)}`);
+    $('studio-phone').hidden = false;
+  }
+})();
 </script>
 </body></html>
